@@ -26,6 +26,7 @@ CHROME
 
 5: click the Load unpacked button that appears 
 
-6:  navigate to the downloaded files and select open folder on the folder named rickroll-browser-extention--main
+6:  navigate to the downloaded files and select open folder on the folder named rickroll-browser-extention--main 
+Note that there may be two of these one inside the other, you will want to open the innermost one 
 
 7: enjoy
