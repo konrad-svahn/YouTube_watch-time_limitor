@@ -14,8 +14,18 @@ FIREFOX:
 
 4: click Load Temporary Add-on 
 
-5:
+5: navigate to to the downloaded files and click manifest.json 
+
+6: enjoy
 
 CHROME
 
-3: 
+3: paste chrome://extensions into your search bar
+
+4: enable developer mode in the upper right corner
+
+5: click the Load unpacked button that appears 
+
+6:  navigate to the downloaded files and select open folder on the folder named konrad-svahn-rickroll-browser-extention-
+
+7: enjoy
