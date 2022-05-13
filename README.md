@@ -1,3 +1,3 @@
 # konrad-svahn-rickroll-browser-extention-
 
-https://www.freecodecamp.org/news/write-your-own-browser-extensions/
+I lerned how to do this from https://www.freecodecamp.org/news/write-your-own-browser-extensions/
