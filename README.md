@@ -26,6 +26,6 @@ CHROME
 
 5: click the Load unpacked button that appears 
 
-6:  navigate to the downloaded files and select open folder on the folder named konrad-svahn-rickroll-browser-extention-
+6:  navigate to the downloaded files and select open folder on the folder named rickroll-browser-extention--main
 
 7: enjoy
