@@ -8,6 +8,14 @@ only works for hyperlinks not ads or other interactable DOM elements
 
 2: unzip in a location of your choice 
 
-3: FIREFOX go to about:debugging#/runtime/this-firefox 
+FIREFOX:
 
-3: CHROME
+3: paste about:debugging#/runtime/this-firefox into your search bar
+
+4: click Load Temporary Add-on 
+
+5:
+
+CHROME
+
+3: 
