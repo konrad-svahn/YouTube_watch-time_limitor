@@ -1,5 +1,7 @@
 # rickroll-browser-extention-
 
+makes every link you click on a rickroll
+
 I lerned how to do this from https://www.freecodecamp.org/news/write-your-own-browser-extensions/
 
 only works for hyperlinks not ads or other interactable DOM elements
