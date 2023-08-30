@@ -1,6 +1,6 @@
+const sites = {
+  kielikoulu: 'https://kielikoulu.yle.fi/#/history',
+  github: 'https://github.com/konrad-svahn/',  
+};
 
-let links = document.getElementsByTagName('a');
-
-for ( l of links) {
-    l.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-}
+location.replace(sites.kielikoulu);
