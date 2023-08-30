@@ -4,7 +4,7 @@
     "name":"wach time limitor",
     "content_scripts":[
       {
-       "matches":["https://github.com"],
+       "matches":["*://*.github.com/*"],
        "js":["main.js"]
       }
     ]
