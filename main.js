@@ -33,7 +33,7 @@ function checkTime() {
       // runs if the time spent in the tab exedes the time limit
       if (diff - mod > timeLimit && !pause) {
         mod = 0
-        localStorage.setItem("timeStamp", now);
+        localStorage.removeItem("timeStamp");
         location.replace(sites.kielikoulu); //<---------------------------------------------------------------------------------------------------------------- alter site
       }
     } else {
