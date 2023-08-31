@@ -47,5 +47,9 @@ function checkTime() {
       localStorage.setItem("pauseStamp", now);
     }
   }
-  setTimeout(checkTime, 1000);
+  // the number shown in the console it shows the nuber of minutes since the last checkpoint
+  let display = (diff - mod)/60000
+  let displayLimit = timeLimit/60000
+  console.log(display.toFixed(1) + " / " + displayLimit)
+  setTimeout(checkTime, 60000);
 }
