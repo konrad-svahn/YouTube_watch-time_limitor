@@ -7,6 +7,13 @@
        "matches":["*://*.youtube.com/*"],
        "js":["main.js"]
       }
-    ]
+    ],
+
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "wachTimeLimitor@example.com",
+        "strict_min_version": "42.0"
+      }
   }
+}
   

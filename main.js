@@ -1,6 +1,5 @@
 const sites = {
   kielikoulu: 'https://kielikoulu.yle.fi/#/history',
-  github: 'https://github.com/konrad-svahn/',  
 };
 
 // the amount of milliseconds before you get redireckted
