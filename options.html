@@ -8,8 +8,11 @@
     <form>
       <label>Target url: <input type="text" id="target" name="target" size="50"/></label>
       <br><p>The amount of allowed watch time per session is: </p>
-      <label><input type="number" id="hours" name="hours" min="0" max="23"/> hours and </label>
-      <label><input type="number" id="minutes" name="minutes" min="0" max="59"/> minutes</label>
+      <label><input type="number" id="sessionHours" name="sessionHours" min="0" max="23"/> hours and </label>
+      <label><input type="number" id="sessionMinutes" name="sessionMinutes" min="0" max="59"/> minutes</label>
+      <br><p>The amount of time you can't access youtube after a session is over is: </p>
+      <label><input type="number" id="breakHours" name="breakHours" min="0" max="23"/> hours and </label>
+      <label><input type="number" id="breakMinutes" name="breakMinutes" min="0" max="59"/> minutes</label>
       <br><br>
       <button type="submit">Save</button>
     </form>

@@ -1,7 +1,7 @@
 {
     "manifest_version":2,
-    "version":"1.0",
-    "name":"wach time limitor",
+    "version":"1.1",
+    "name":"youtube watch time limiter",
     "content_scripts":[
       {
        "matches":["*://*.youtube.com/*"],
