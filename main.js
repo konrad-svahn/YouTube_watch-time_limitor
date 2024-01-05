@@ -25,18 +25,18 @@ function checkTime(setings) {
   
   let now = Date.now();
   let diff = now - stamp;
-  
+
   // the time stamp representing the end of the break
-  let br = localStorage.getItem("pauseStamp");
+  let br = parseInt(localStorage.getItem("returnStamp")) + waitPeriodMilliseconds;
   // variable that makes sure no aditional code runs after a redirect
   let cont = true
-
+  
   if (br) {
     if (now < br) {
       cont = false
       location.replace(target);
     } else {
-      localStorage.removeItem("timeStamp");    
+      localStorage.removeItem("returnStamp");    
     }
   }
 
@@ -53,7 +53,7 @@ function checkTime(setings) {
       // runs if the time spent in the tab exedes the time limit
       if (diff - mod > timeLimit && !pause) {
         mod = 0;
-        localStorage.setItem("returnStamp", now + waitPeriodMilliseconds);
+        localStorage.setItem("returnStamp", now);
         localStorage.removeItem("timeStamp");
         location.replace(target); //<---------------------------------------------------------------------------------------------------------------- alter site
       }
@@ -74,7 +74,7 @@ function checkTime(setings) {
   console.log(display.toFixed(1) + " / " + displayLimit);
   setTimeout(getVar, 10000);
 }
-
+/*
 // pause the count when closing the youtube tabb
 window.addEventListener('pagehide', (e) => {
   e.preventDefault()
@@ -82,7 +82,7 @@ window.addEventListener('pagehide', (e) => {
   if (!pause) {
     localStorage.setItem("pauseStamp", Date.now());
   }
-})
+})//*/
 
 // start the counter
 getVar();
