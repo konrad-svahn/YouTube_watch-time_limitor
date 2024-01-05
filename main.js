@@ -5,15 +5,17 @@ function getVar() {
   function onError(error) {
     console.log(`Error: ${error}`);
   }
-  browser.storage.sync.get(["target","sessionHours","sessionMinutes"]).then(checkTime, onError);
+  browser.storage.sync.get(["target","sessionHours","sessionMinutes","breakHours","breakMinutes"]).then(checkTime, onError);
 }
 
 function checkTime(setings) {
   // the site you get trown to when the time is upp
   let target = setings.target;
-
+  
   // the amount of milliseconds before you get redireckted
   let timeLimit = (parseInt(setings.sessionHours) * 60000 * 60) + (parseInt(setings.sessionMinutes) * 60000);
+
+  let waitPeriodMilliseconds = (parseInt(setings.breakHours) * 60000 * 60) + (parseInt(setings.breakMinutes) * 60000);
 
   // marker of when the timer started
   let stamp = localStorage.getItem("timeStamp");
@@ -23,9 +25,23 @@ function checkTime(setings) {
   
   let now = Date.now();
   let diff = now - stamp;
+  
+  // the time stamp representing the end of the break
+  let br = localStorage.getItem("pauseStamp");
+  // variable that makes sure no aditional code runs after a redirect
+  let cont = true
+
+  if (br) {
+    if (now < br) {
+      cont = false
+      location.replace(target);
+    } else {
+      localStorage.removeItem("timeStamp");    
+    }
+  }
 
   // this happens if you are in the tab ---> true if the tab is active
-  if (!document.hidden) {
+  if (!document.hidden && cont) {
 
     // this runs if you tab in to the youtube tab after having tabed out
     if (pause) {
@@ -37,6 +53,7 @@ function checkTime(setings) {
       // runs if the time spent in the tab exedes the time limit
       if (diff - mod > timeLimit && !pause) {
         mod = 0;
+        localStorage.setItem("returnStamp", now + waitPeriodMilliseconds);
         localStorage.removeItem("timeStamp");
         location.replace(target); //<---------------------------------------------------------------------------------------------------------------- alter site
       }
@@ -57,6 +74,15 @@ function checkTime(setings) {
   console.log(display.toFixed(1) + " / " + displayLimit);
   setTimeout(getVar, 10000);
 }
+
+// pause the count when closing the youtube tabb
+window.addEventListener('pagehide', (e) => {
+  e.preventDefault()
+  let pause = localStorage.getItem("pauseStamp");
+  if (!pause) {
+    localStorage.setItem("pauseStamp", Date.now());
+  }
+})
 
 // start the counter
 getVar();
