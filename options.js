@@ -11,7 +11,7 @@ function saveOptions(e) {
   
 function restoreOptions() {
     function setCurrentChoice(result) {
-        document.querySelector("#target").value = result.target || "about:home"; // https://kielikoulu.yle.fi/#/history
+        document.querySelector("#target").value = result.target || "https://www.google.com/"; // https://kielikoulu.yle.fi/#/history
         document.querySelector("#sessionHours").value = result.sessionHours || 3;
         document.querySelector("#sessionMinutes").value = result.sessionMinutes || 0;
         document.querySelector("#breakHours").value = result.breakHours || 1;

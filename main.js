@@ -1,5 +1,5 @@
 // mod is a modifier that causes the timer to not advance when not in the youtube tab
-let mod = parseInt(localStorage.getItem("mod"));
+let mod = parseInt(localStorage.getItem("mod")); 
 
 if (!mod) {
   mod = 0;
@@ -18,9 +18,14 @@ function checkTime(setings) {
   
   // the amount of milliseconds before you get redireckted
   let timeLimit = (parseInt(setings.sessionHours) * 60000 * 60) + (parseInt(setings.sessionMinutes) * 60000) || 10800000;
-
+  if (parseInt(setings.sessionHours) == 0 && parseInt(setings.sessionMinutes) == 0) {
+    timeLimit = 0
+  }
   let waitPeriodMilliseconds = (parseInt(setings.breakHours) * 60000 * 60) + (parseInt(setings.breakMinutes) * 60000) || 5400000;
-
+  if (parseInt(setings.breakHours) == 0 && parseInt(setings.breakMinutes) == 0) {
+    waitPeriodMilliseconds = 0
+  }
+  
   // marker of when the timer started
   let stamp = localStorage.getItem("timeStamp");
 
@@ -39,6 +44,7 @@ function checkTime(setings) {
     if (now < br) {
       cont = false
       mod = 0;
+      localStorage.removeItem("mod");
       location.replace(target);
     } else {
       localStorage.removeItem("returnStamp");    
@@ -58,6 +64,7 @@ function checkTime(setings) {
       // runs if the time spent in the tab exedes the time limit
       if (diff - mod > timeLimit && !pause) {
         mod = 0;
+        localStorage.removeItem("mod");
         localStorage.setItem("returnStamp", now);
         localStorage.removeItem("timeStamp");
         location.replace(target); //<---------------------------------------------------------------------------------------------------------------- alter site
