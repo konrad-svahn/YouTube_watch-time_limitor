@@ -17,9 +17,9 @@ function checkTime(setings) {
   let target = setings.target;
   
   // the amount of milliseconds before you get redireckted
-  let timeLimit = (parseInt(setings.sessionHours) * 60000 * 60) + (parseInt(setings.sessionMinutes) * 60000);
+  let timeLimit = (parseInt(setings.sessionHours) * 60000 * 60) + (parseInt(setings.sessionMinutes) * 60000) || 10800000;
 
-  let waitPeriodMilliseconds = (parseInt(setings.breakHours) * 60000 * 60) + (parseInt(setings.breakMinutes) * 60000);
+  let waitPeriodMilliseconds = (parseInt(setings.breakHours) * 60000 * 60) + (parseInt(setings.breakMinutes) * 60000) || 5400000;
 
   // marker of when the timer started
   let stamp = localStorage.getItem("timeStamp");
