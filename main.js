@@ -1,5 +1,9 @@
 // mod is a modifier that causes the timer to not advance when not in the youtube tab
-let mod = 0;
+let mod = parseInt(localStorage.getItem("test"));
+
+if (!mod) {
+  mod = 0;
+}
 
 function getVar() {
   function onError(error) {
@@ -11,6 +15,8 @@ function getVar() {
 function checkTime(setings) {
   // the site you get trown to when the time is upp
   let target = setings.target;
+
+  console.log(localStorage.getItem("test"));
   
   // the amount of milliseconds before you get redireckted
   let timeLimit = (parseInt(setings.sessionHours) * 60000 * 60) + (parseInt(setings.sessionMinutes) * 60000);
@@ -34,6 +40,7 @@ function checkTime(setings) {
   if (br) {
     if (now < br) {
       cont = false
+      mod = 0;
       location.replace(target);
     } else {
       localStorage.removeItem("returnStamp");    
@@ -74,12 +81,13 @@ function checkTime(setings) {
   console.log(display.toFixed(1) + " / " + displayLimit);
   setTimeout(getVar, 10000);
 }
-/*
+
 // pause the count when closing the youtube tabb
 window.addEventListener('pagehide', (e) => {
   e.preventDefault()
-  let pause = localStorage.getItem("pauseStamp");
-  if (!pause) {
+  let p = localStorage.getItem("pauseStamp");
+  if (!p) {
+    localStorage.setItem("test", mod);
     localStorage.setItem("pauseStamp", Date.now());
   }
 })//*/

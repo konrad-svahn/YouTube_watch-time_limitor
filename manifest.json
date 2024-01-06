@@ -1,6 +1,6 @@
 {
     "manifest_version":2,
-    "version":"1.1",
+    "version":"2.0",
     "name":"youtube watch time limiter",
     "content_scripts":[
       {
