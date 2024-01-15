@@ -1,9 +1,5 @@
 // mod is a modifier that causes the timer to not advance when not in the youtube tab
-let mod = parseInt(localStorage.getItem("mod")); 
-
-if (!mod) {
-  mod = 0;
-}
+let mod = 0
 
 function getVar() {
   function onError(error) {
@@ -26,6 +22,11 @@ function checkTime(setings) {
     waitPeriodMilliseconds = 0
   }
   
+  mod = parseInt(localStorage.getItem("mod")); 
+  if (!mod) {
+    mod = 0;
+  }
+
   // marker of when the timer started
   let stamp = localStorage.getItem("timeStamp");
 
@@ -44,7 +45,7 @@ function checkTime(setings) {
     if (now < br) {
       cont = false
       mod = 0;
-      localStorage.removeItem("mod");
+      localStorage.setItem("mod", mod);
       location.replace(target);
     } else {
       localStorage.removeItem("returnStamp");    
@@ -58,13 +59,14 @@ function checkTime(setings) {
     if (pause) {
       localStorage.removeItem("pauseStamp");
       mod = (now - pause) + mod;
+      localStorage.setItem("mod", mod);
     }
 
     if (stamp) {
       // runs if the time spent in the tab exedes the time limit
       if (diff - mod > timeLimit && !pause) {
         mod = 0;
-        localStorage.removeItem("mod");
+        localStorage.setItem("mod", mod);
         localStorage.setItem("returnStamp", now);
         localStorage.removeItem("timeStamp");
         location.replace(target); //<---------------------------------------------------------------------------------------------------------------- alter site
@@ -91,8 +93,9 @@ function checkTime(setings) {
 window.addEventListener('pagehide', (e) => {
   e.preventDefault()
   let p = localStorage.getItem("pauseStamp");
-  if (!p) {
-    localStorage.setItem("mod", mod);
+  let s = localStorage.getItem("timeStamp");
+  localStorage.setItem("mod", mod);
+  if (!p && !s) {
     localStorage.setItem("pauseStamp", Date.now());
   }
 })//*/
