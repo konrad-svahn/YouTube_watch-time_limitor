@@ -95,7 +95,7 @@ window.addEventListener('pagehide', (e) => {
   let p = localStorage.getItem("pauseStamp");
   let s = localStorage.getItem("timeStamp");
   localStorage.setItem("mod", mod);
-  if (!p && !s) {
+  if (!p && s) {
     localStorage.setItem("pauseStamp", Date.now());
   }
 })//*/
