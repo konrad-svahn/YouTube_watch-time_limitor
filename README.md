@@ -26,3 +26,6 @@ CHROME
 Note that there may be two of these one inside the other, you will want to open the innermost one 
 
 7: enjoy
+
+THE ADDON CAN BE ADDED TO YOUR BROWSER FROM HERE
+https://addons.mozilla.org/en-US/firefox/addon/youtube-watch-time-limiter/
